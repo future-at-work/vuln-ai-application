@@ -1,5 +1,7 @@
 import streamlit as st
 import base64
+import yaml
+import os
 
 def display_instructions():
     # Markdown with some basic CSS styles for the box
@@ -67,3 +69,17 @@ def display_logo():
     """
     # Display the HTML in the sidebar
     st.sidebar.markdown(html_string, unsafe_allow_html=True)
+
+def _load_llm_config():
+    with open('llm-config.yaml', 'r') as f:
+        yaml_data = yaml.load(f, Loader=yaml.SafeLoader)
+    return yaml_data
+
+def fetch_model_config():
+    chosen_model_name = os.getenv("model_name")
+    llm_config = _load_llm_config()
+    for model_config in llm_config.get("models"):
+        if chosen_model_name == model_config.get("model_name"):
+            return model_config.get("model")
+    else:
+        return llm_config.get("default_model")

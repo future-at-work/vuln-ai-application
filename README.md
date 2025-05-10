@@ -30,10 +30,10 @@ pipenv install python-dotenv
 
 ### Running the Application
 
-Before running the application, you need to setup a .env file based on the provided env templates.
+Before running the application, you need to setup a .env file based on the provided env templates. The env templates have a model_name variable which can be chosen from the list of models mentioned in llm-config.yaml.
 
 #### To run with OpenAI
-You need to drop a valid OpenAI API key in the .env file (that you can create by copying the env.list template). Note: you need access to **GPT-4** or **GPT-4-Turbo**, as GPT-3.5-Turbo can't use tools reliably.
+You need to drop a valid OpenAI API key in the .env file (that you can create by copying the .env.openai.template). Note: We have limited use to **GPT-4** as GPT-3.5-Turbo can't use tools reliably.
 
 #### To run with Models from HuggingFace
 You need to drop a valid HuggingFace Token in the .env file (that you can create by copying the .env.huggingface.template). Note: It is possible that you may not see reasonable results with the chosen models yet.

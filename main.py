@@ -11,7 +11,7 @@ from langchain.agents import initialize_agent
 from langchain.callbacks import get_openai_callback
 
 from tools import get_current_user_tool, get_recent_transactions_tool
-from utils import display_instructions, display_logo
+from utils import display_instructions, display_logo, fetch_model_config
 
 load_dotenv()
 
@@ -59,9 +59,9 @@ for idx, msg in enumerate(msgs.messages):
 
 if prompt := st.chat_input(placeholder="Show my recent transactions"):
     st.chat_message("user").write(prompt)
-
+    
     llm = ChatLiteLLM(
-        model=os.getenv("model"),
+        model=fetch_model_config(),
         temperature=0, streaming=True
     )
     tools = tools
