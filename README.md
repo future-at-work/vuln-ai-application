@@ -30,12 +30,25 @@ pipenv install python-dotenv
 
 ### Running the Application
 
-Before running the application, you need to drop a valid OpenAI API key in the .env file (that you can create by copying the env.list template). Note: you need access to **GPT-4** or **GPT-4-Turbo**, as GPT-3.5-Turbo can't use tools reliably.
+Before running the application, you need to setup a .env file based on the provided env templates.
 
-To run the application:
+#### To run with OpenAI
+You need to drop a valid OpenAI API key in the .env file (that you can create by copying the env.list template). Note: you need access to **GPT-4** or **GPT-4-Turbo**, as GPT-3.5-Turbo can't use tools reliably.
+
+#### To run with Models from HuggingFace
+You need to drop a valid HuggingFace Token in the .env file (that you can create by copying the .env.huggingface.template). Note: It is possible that you may not see reasonable results with the chosen models yet.
+
+#### To run using ollama locally
+- Create a .env by copying .env.ollama.template.
+- Install [Ollama](https://github.com/ollama/ollama)
+- ollama pull llama3:latest
+
+Note: Please note that while this local mode is great for getting a taste of the application. It is possible that you may not see reasonable results with these yet.
+
+#### To run the application:
 
 ```sh
-streamlit run main.py
+python -m streamlit run main.py
 ```
 
 ### Docker Image
