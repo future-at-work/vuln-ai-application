@@ -25,7 +25,7 @@ To get started, you need to set up your Python environment by following these st
 python3 -m venv env
 source env/bin/activate
 pip install -r requirements.txt
-pipenv install python-dotenv
+pip install python-dotenv
 ```
 
 ### Running the Application
