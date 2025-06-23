@@ -33,7 +33,7 @@ pip install python-dotenv
 Before running the application, you need to setup a .env file based on the provided env templates. The env templates have a model_name variable which can be chosen from the list of models mentioned in llm-config.yaml.
 
 #### To run with OpenAI
-You need to drop a valid OpenAI API key in the .env file (that you can create by copying the .env.openai.template). Note: We have limited use to **GPT-4** as GPT-3.5-Turbo can't use tools reliably.
+You need to drop a valid OpenAI API key in the .env file (that you can create by copying the .env.openai.template).
 
 #### To run with Models from HuggingFace
 You need to drop a valid HuggingFace Token in the .env file (that you can create by copying the .env.huggingface.template). Note: It is possible that you may not see reasonable results with the chosen models yet.
@@ -41,9 +41,9 @@ You need to drop a valid HuggingFace Token in the .env file (that you can create
 #### To run using ollama locally
 - Create a .env by copying .env.ollama.template.
 - Install [Ollama](https://github.com/ollama/ollama)
-- ollama pull llama3:latest
+- ollama pull mistral-nemo
 
-Note: Please note that while this local mode is great for getting a taste of the application. It is possible that you may not see reasonable results with these yet.
+Note: Please note that small LLMs do not perform very well as ReACT agents. In our testing `mistral-nemo` appeared to be sufficiently reliable. It is possible that you may not see reasonable results with most small models.
 
 #### To run the application:
 

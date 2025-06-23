@@ -6,6 +6,9 @@ models:
   - model_name: openai-gpt-4o
     model: gpt-4o
 
+  - model_name: ollama-mistral-nemo
+    model: "ollama/mistral-nemo"
+
   - model_name: ollama-local-llama3
     model: "ollama/llama3"
 
