@@ -1,16 +1,17 @@
 import langchain
 import streamlit as st
+import os
 from dotenv import load_dotenv
 from langchain.agents import ConversationalChatAgent, AgentExecutor
 from langchain.callbacks import StreamlitCallbackHandler
-from langchain.chat_models import ChatOpenAI
+from langchain_litellm import ChatLiteLLM
 from langchain.memory import ConversationBufferMemory
 from langchain.memory.chat_message_histories import StreamlitChatMessageHistory
 from langchain.agents import initialize_agent
 from langchain.callbacks import get_openai_callback
 
 from tools import get_current_user_tool, get_recent_transactions_tool
-from utils import display_instructions, display_logo
+from utils import display_instructions, display_logo, fetch_model_config
 
 load_dotenv()
 
@@ -58,9 +59,9 @@ for idx, msg in enumerate(msgs.messages):
 
 if prompt := st.chat_input(placeholder="Show my recent transactions"):
     st.chat_message("user").write(prompt)
-
-    llm = ChatOpenAI(
-        model_name="gpt-4-1106-preview",
+    
+    llm = ChatLiteLLM(
+        model=fetch_model_config(),
         temperature=0, streaming=True
     )
     tools = tools
