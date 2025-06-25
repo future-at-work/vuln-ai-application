@@ -40,6 +40,7 @@ You need to drop a valid HuggingFace Token in the .env file (that you can create
 
 #### To run using ollama locally
 - Create a .env by copying .env.ollama.template.
+- Change the default model to any ollama model you want to use by editing `llm-config.yaml`
 - Install [Ollama](https://github.com/ollama/ollama)
 - ollama pull mistral-nemo
 
